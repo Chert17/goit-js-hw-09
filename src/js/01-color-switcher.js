@@ -14,24 +14,16 @@ function onStartchangeColor(e) {
     refs.body.style.backgroundColor = randomColor();
   }, 1000);
 
-  onStartAttribute();
+  refs.startBtn.setAttribute('disabled', true);
+  refs.stopBtn.removeAttribute('disabled');
 }
 
 function onStopChangeColor(e) {
   clearInterval(idInterval);
-  onStopAttribute();
+  refs.stopBtn.setAttribute('disabled', true);
+  refs.startBtn.removeAttribute('disabled');
 }
 
 const randomColor = function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 };
-
-function onStopAttribute() {
-  refs.stopBtn.setAttribute('disabled', true);
-  refs.startBtn.removeAttribute('disabled');
-}
-
-function onStartAttribute() {
-  refs.startBtn.setAttribute('disabled', true);
-  refs.stopBtn.removeAttribute('disabled');
-}
